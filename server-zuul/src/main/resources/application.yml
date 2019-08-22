@@ -1,0 +1,25 @@
+eureka:
+  client:
+    serviceUrl:
+      defaultZone: http://localhost:8761/eureka/
+server:
+  port: 8769
+spring:
+  application:
+    name: service-zuul
+
+zuul:
+  routes:
+    api-a:
+      path: /mini-ser/**
+      serviceId: server-video
+    api-b:
+      path: /docker-ser/**
+      serviceId: server-docker
+#拦截白名单
+Interceptor:
+  url-exclude: /user/login;/user/logout;/buy/notify;/health/info;
+
+#log配置文件
+logging:
+  config: classpath:logback-spring.xml

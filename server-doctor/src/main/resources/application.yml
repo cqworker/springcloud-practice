@@ -1,0 +1,30 @@
+spring:
+  #指定server运行端口
+  port: 8081
+  tomcat:
+    uri-encoding: UTF-8
+  #指定server在注册中心的注册名
+  application:
+    name: server-doctor
+  http:
+      encoding:
+          charset: UTF-8
+          enabled: true
+          force: true
+  messages:
+      encoding: UTF-8
+  mvc:
+      servlet:
+          load-on-startup: 1
+
+mybatis-plus:
+ # 扫描 mapper.xml
+  mapper-locations: classpath:/mapper/*/*Mapper.xml
+
+#拦截白名单
+Interceptor:
+  url-exclude: /user/login;/buy/notify;/health/info;
+
+#log配置文件
+logging:
+  config: classpath:logback-spring.xml

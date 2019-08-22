@@ -1,0 +1,95 @@
+eureka:
+  client:
+    serviceUrl:
+      defaultZone: http://localhost:8761/eureka/,http://localhost:8762/eureka/
+
+#jwt config
+JWT:
+  jwt-key: xxxxdev
+  token-expiration-time: 86400  #one day 单位：seconds
+  token-prefix: 'Beerer '
+  request-user-key: mpUserSysid
+
+# Logger Config
+logging:
+  level:
+    com.kw13: debug
+
+# DataSource Config
+spring:
+  datasource:
+    driver-class-name: org.postgresql.Driver
+    url: jdbc:postgresql://127.0.0.1:5432/mytest
+    username: postgres
+    password: root
+    initial-size: 1
+    max-active: 1
+    min-idle: 1
+    max-idle: 1
+    validation-query: SELECT 1;
+    
+#redis config
+redis:
+  database: 0
+  host: 47.112.10.53
+  port: 6379
+  password: kwzy2016
+  timeout: 0
+  pool:
+    max-active: 8
+
+#第三方服务
+wechat:
+    account:
+      appid: wxc3e3e98316717322 #心安
+      appsecret: cab199fac3ef875e36e80802c9ce1ec7
+      mchid: 1519218871
+      mchKey: apidgkajgadjgpaiewqndfkiqjfjgkjk
+      cert: cert/xinan_apiclient_cert.p12
+    api:
+      jscode2session: https://api.weixin.qq.com/sns/jscode2session
+      get-access-token: https://api.weixin.qq.com/cgi-bin/token
+      pay-unifiedorder: https://api.mch.weixin.qq.com/pay/unifiedorder
+    config:
+      accesstoken_redis_key:  ${wechat.account.appid}-accesstoken
+      key_delay: 3600
+      refund-url: https://api.mch.weixin.qq.com/secapi/pay/refund
+      notify-url: http://ip-mp-test.xinantech.cn:8090/buy/notify
+hehuan:
+     appSecret: WoMN3cDEYG0O  #调用方密钥
+     productId: 10070 #调用方标识
+     monthpid: 119   #月卡编号
+     yearpid: 129    #年卡编号
+     api:
+        regCommon: https://test.hh-medic.com/familyapp/api/2.0/user/regCommon #用户注册
+        updateByUserToken: https://test.hh-medic.com/familyapp/api/user/updateByUserToken #更新用户信息
+        addProuctByUserToken: https://test.hh-medic.com/familyapp/product/api/addProuctByUserToken #添加套餐
+        addMember: https://test.hh-medic.com/familyapp/api/2.0/user/addMember #添加家庭成员
+        renewalProductByImei: https://test.hh-medic.com/familyapp/product/api/renewalProductByImei #续费
+        delProductByUserToken: https://test.hh-medic.com/familyapp/familyapp/product/api/delProductByUserToken #停止用户套餐
+        delete: https://test.hh-medic.com/familyapp/api/user/delete #删除用户
+#短信
+sms:
+  accesskey:
+    id: LTAIQn9iHUpKbWsZ
+    secret: FYXB1agzV6WjqqFpq9bnKvqGMuSbEs
+  domain: dysmsapi.aliyuncs.com
+  endpointname: cn-hangzhou
+  product: Dysmsapi
+  regionid: cn-hangzhou
+  #短信验证码配置
+  verifycode:
+      redis-keyname-prefix: hemu_vc_
+      check-count-key-prefix: hemu_vccc_
+      timeout: 300  #验证码有效期，单位：seconds
+      signname: xx科技
+      templatecode: SMS_130918202
+
+#阿里云oss
+oss:
+  endpoint: oss-cn-shenzhen.aliyuncs.com
+  bucket: hemu-member-material
+  baseFolderName: test
+  accessKeyId: LTAIQn9iHUpKbWsZ
+  accessKeySecret: FYXB1agzV6WjqqFpq9bnKvqGMuSbEs
+  dns: hemu-member-material.oss-cn.aliyuncs.com

@@ -1,3 +1,7 @@
+eureka:
+  client:
+    serviceUrl:
+      defaultZone: http://localhost:8761/eureka/
 server:
   port: 8769
 spring:
@@ -15,11 +19,9 @@ zuul:
     api-b:
       path: /doctor-ser/**
       serviceId: server-doctor
-#拦截名单/白名单
-interceptor:
-  token-uris: /mini-ser/buy;
-  give-auth-uris: /doctor-ser/user/login;/mini-ser/user/login;
-  auth-exclude-uris: /doctor-ser/user/login;
+#拦截白名单
+Interceptor:
+  url-exclude: /user/login;/user/logout;/buy/notify;/health/info;
 
 #log配置文件
 logging:

@@ -1,8 +1,7 @@
-server:
-  port: 8769
-spring:
-  application:
-    name: service-zuul
+eureka:
+  client:
+    serviceUrl:
+      defaultZone: http://localhost:8761/eureka/
 
 zuul:
   host:
@@ -15,11 +14,6 @@ zuul:
     api-b:
       path: /doctor-ser/**
       serviceId: server-doctor
-#拦截名单/白名单
-interceptor:
-  token-uris: /mini-ser/buy;
-  give-auth-uris: /doctor-ser/user/login;/mini-ser/user/login;
-  auth-exclude-uris: /doctor-ser/user/login;
 
 #log配置文件
 logging:

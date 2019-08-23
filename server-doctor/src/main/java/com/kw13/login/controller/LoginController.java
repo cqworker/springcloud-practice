@@ -11,6 +11,8 @@ import com.kw13.util.JwtTokenUtil;
 import org.springframework.beans.factory.annotation.Autowired;
 //import org.springframework.security.core.context.SecurityContextHolder;
 //import org.springframework.security.core.userdetails.UserDetails;
+import org.springframework.security.core.context.SecurityContextHolder;
+import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.web.bind.annotation.*;
 
 import org.springframework.stereotype.Controller;
@@ -59,16 +61,16 @@ public class LoginController extends BaseController {
         return ResponseGenerator.genSuccessResult(tokeStr);
     }
 
-//    @RequestMapping("/whoami")
-//    public String whoami() {
-//        String currentUser = "";
-//        Object principl = SecurityContextHolder.getContext().getAuthentication().getPrincipal();
-//        if (principl instanceof UserDetails) {
-//            currentUser = ((UserDetails) principl).getUsername();
-//        } else {
-//            currentUser = principl.toString();
-//        }
-//        return currentUser;
-//    }
+    @RequestMapping("/whoami")
+    public String whoami() {
+        String currentUser = "";
+        Object principl = SecurityContextHolder.getContext().getAuthentication().getPrincipal();
+        if (principl instanceof UserDetails) {
+            currentUser = ((UserDetails) principl).getUsername();
+        } else {
+            currentUser = principl.toString();
+        }
+        return currentUser;
+    }
 
 }

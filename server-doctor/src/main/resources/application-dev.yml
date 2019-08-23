@@ -1,9 +1,3 @@
-server:
-  port: 8092
-spring:
-  application:
-    name: server-doctor
-
 eureka:
   client:
     serviceUrl:
@@ -60,19 +54,7 @@ wechat:
       key_delay: 3600
       refund-url: https://api.mch.weixin.qq.com/secapi/pay/refund
       notify-url: http://ip-mp-test.xinantech.cn:8090/buy/notify
-hehuan:
-     appSecret: WoMN3cDEYG0O  #调用方密钥
-     productId: 10070 #调用方标识
-     monthpid: 119   #月卡编号
-     yearpid: 129    #年卡编号
-     api:
-        regCommon: https://test.hh-medic.com/familyapp/api/2.0/user/regCommon #用户注册
-        updateByUserToken: https://test.hh-medic.com/familyapp/api/user/updateByUserToken #更新用户信息
-        addProuctByUserToken: https://test.hh-medic.com/familyapp/product/api/addProuctByUserToken #添加套餐
-        addMember: https://test.hh-medic.com/familyapp/api/2.0/user/addMember #添加家庭成员
-        renewalProductByImei: https://test.hh-medic.com/familyapp/product/api/renewalProductByImei #续费
-        delProductByUserToken: https://test.hh-medic.com/familyapp/familyapp/product/api/delProductByUserToken #停止用户套餐
-        delete: https://test.hh-medic.com/familyapp/api/user/delete #删除用户
+
 #短信
 sms:
   accesskey:

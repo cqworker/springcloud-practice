@@ -1,7 +1,3 @@
-eureka:
-  client:
-    serviceUrl:
-      defaultZone: http://localhost:8761/eureka/
 server:
   port: 8769
 spring:
@@ -16,6 +12,9 @@ zuul:
     api-b:
       path: /docker-ser/**
       serviceId: server-docker
+    api-c:
+      path: /feign-ser/**
+      serviceId: service-feign
 #拦截白名单
 Interceptor:
   url-exclude: /user/login;/user/logout;/buy/notify;/health/info;
@@ -23,3 +22,6 @@ Interceptor:
 #log配置文件
 logging:
   config: classpath:logback-spring.xml
+  level:
+    com.netflix: info
+    org.apache.http: info

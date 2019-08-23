@@ -23,7 +23,7 @@ public class InterceptorAdapterConfig implements WebMvcConfigurer {
 
     @Autowired
     private LoginInterceptor loginInterceptor;
-    
+
     @Value("${Interceptor.url-exclude}")
     private String urls ;
 

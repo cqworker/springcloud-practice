@@ -10,6 +10,6 @@ import java.lang.annotation.*;
 @Target({ElementType.METHOD})
 @Documented
 public @interface ChangeDB {
-    String value() default "datasource1";
+    String value() default "datasource2";
 
 }

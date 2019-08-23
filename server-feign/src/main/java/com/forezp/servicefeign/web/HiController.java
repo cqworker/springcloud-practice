@@ -10,7 +10,7 @@ import org.springframework.web.bind.annotation.RestController;
  * Email miles02@163.com
  *
  * @author fangzhipeng
- * create 2018-07-09
+ *         create 2018-07-09
  **/
 @RestController
 public class HiController {
@@ -22,6 +22,7 @@ public class HiController {
 
     @GetMapping(value = "/hi")
     public String sayHi(@RequestParam String name) {
-        return schedualServiceHi.sayHiFromClientOne( name );
+        System.out.println("say hi" + name + " name");
+        return schedualServiceHi.info1();
     }
 }

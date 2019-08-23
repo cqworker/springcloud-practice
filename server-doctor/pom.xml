@@ -40,18 +40,18 @@
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-starter-web</artifactId>
         </dependency>
-        <dependency>
-            <groupId>org.springframework.boot</groupId>
-            <artifactId>spring-boot-starter-security</artifactId>
-        </dependency>
+        <!--<dependency>-->
+            <!--<groupId>org.springframework.boot</groupId>-->
+            <!--<artifactId>spring-boot-starter-security</artifactId>-->
+        <!--</dependency>-->
 
-<!--psql begin-->
+        <!--psql begin-->
         <dependency>
             <groupId>org.postgresql</groupId>
             <artifactId>postgresql</artifactId>
             <scope>runtime</scope>
         </dependency>
-<!--psql end-->
+        <!--psql end-->
         <!--jwt start-->
         <dependency>
             <groupId>io.jsonwebtoken</groupId>
@@ -59,7 +59,13 @@
             <version>0.7.0</version>
         </dependency>
         <!--jwt end-->
-<!--mybatis-plus start-->
+        <!--localDate 序列化 start-->
+        <dependency>
+            <groupId>com.fasterxml.jackson.datatype</groupId>
+            <artifactId>jackson-datatype-jsr310</artifactId>
+        </dependency>
+        <!--localDate 序列化 end-->
+        <!--mybatis-plus start-->
         <dependency>
             <groupId>com.baomidou</groupId>
             <artifactId>mybatis-plus-core</artifactId>
@@ -84,15 +90,14 @@
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-starter-freemarker</artifactId>
         </dependency>
-<!--mybatis-plus end-->
+        <!--mybatis-plus end-->
 
-<!--负载均衡 熔断start-->
+        <!--负载均衡 熔断start-->
         <dependency>
             <groupId>org.springframework.cloud</groupId>
             <artifactId>spring-cloud-starter-openfeign</artifactId>
         </dependency>
-<!--负载均衡 熔断end-->
-
+        <!--负载均衡 熔断end-->
 
 
         <!--lombok精简代码-->
@@ -136,6 +141,13 @@
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-starter-aop</artifactId>
         </dependency>
+        <!-- gson start -->
+        <dependency>
+            <groupId>com.google.code.gson</groupId>
+            <artifactId>gson</artifactId>
+            <version>2.8.5</version>
+        </dependency>
+        <!-- gson end -->
 
     </dependencies>
 
